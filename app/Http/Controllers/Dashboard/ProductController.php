@@ -33,8 +33,9 @@ class ProductController extends Controller
         $product = Auth::guard('admin')->user()->products()->create(array_merge($published, $request->validated()));
 
         foreach ($request->file('images') as $item) {
-            $path = $item->storeAs('products', uniqid() . ".jpg");
-            $product->media()->create(['url' => $path]);
+            $filename = uniqid().".jpg";
+            $path = $item->storeAs('public/products', $filename);
+            $product->media()->create(['url' => config('app.url')."/storage/products/$filename"]);
         }
 
         return redirect()->back();

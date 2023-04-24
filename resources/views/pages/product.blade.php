@@ -21,7 +21,7 @@
                     <div class="col-lg-2 order-lg-1 order-2">
                         <ul class="image_list">
                             @foreach($product->photos as $photo)
-                                <li data-image="{{$photo->getFullUrl()}}"><img src="{{$photo->getFullUrl()}}" alt="">
+                                <li data-image="{{$photo->url}}"><img src="{{$photo->url}}" alt="">
                                 </li>
                             @endforeach
                         </ul>
