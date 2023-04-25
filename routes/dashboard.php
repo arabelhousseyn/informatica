@@ -5,6 +5,7 @@ use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\AdminController;
 use App\Http\Controllers\Dashboard\UsersController;
 use App\Http\Controllers\Dashboard\ProductController;
+use App\Http\Controllers\Dashboard\AdsController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('dashboard')->name('dashboard.')->group(function () {
@@ -21,6 +22,7 @@ Route::prefix('dashboard')->name('dashboard.')->group(function () {
             '/admins' => AdminController::class,
             '/users' => UsersController::class,
             '/products' => ProductController::class,
+            '/ads' => AdsController::class,
         ]);
     });
 });

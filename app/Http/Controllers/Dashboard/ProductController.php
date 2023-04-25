@@ -34,7 +34,7 @@ class ProductController extends Controller
 
         foreach ($request->file('images') as $item) {
             $filename = uniqid().".jpg";
-            $path = $item->storeAs('public/products', $filename);
+            $item->storeAs('public/products', $filename);
             $product->media()->create(['url' => config('app.url')."/storage/products/$filename"]);
         }
 

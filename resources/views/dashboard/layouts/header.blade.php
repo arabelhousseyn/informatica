@@ -91,7 +91,13 @@
 
             <li>
                 <a href="/dashboard/products">
-                    <i class="fa fa-box"></i> <span>Produits</span>
+                    <i class="fa fa-dashboard"></i> <span>Produits</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="/dashboard/ads">
+                    <i class="fa fa-dashboard"></i> <span>Publicités</span>
                 </a>
             </li>
         </ul>

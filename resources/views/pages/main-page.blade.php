@@ -7,16 +7,7 @@
     <div class="deals_featured">
         <div class="container">
             <div class="row">
-                <div class="col d-flex flex-lg-row flex-column align-items-center justify-content-start">
-                    <div class="deals">
-                        <div class="featured_slider slider">
-                            @foreach($ads as $ad)
-                                <div class="featured_slider_item">
-                                    <div class="deals_image"><img src="{{$ad->photo}}" alt=""></div>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
+                <div class="col d-flex flex-lg-row flex-column align-items-center justify-content-center">
                     <!-- Featured -->
                     <div class="featured">
                         <div class="tabbed_container">
