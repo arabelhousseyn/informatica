@@ -10,9 +10,9 @@ use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class OrderItem extends Pivot implements HasMedia
+class OrderItem extends Pivot
 {
-    use HasFactory, HasUuids, InteractsWithMedia;
+    use HasFactory, HasUuids;
 
     public function __construct(array $attributes = [])
     {
@@ -63,28 +63,5 @@ class OrderItem extends Pivot implements HasMedia
     public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class, 'product_id', 'id');
-    }
-
-    /*
-     * Functions
-     *
-     */
-
-    /**
-     * Defining media collections for the User model.
-     * https://spatie.be/docs/laravel-medialibrary/v9/working-with-media-collections/defining-media-collections
-     */
-    public function registerMediaCollections(): void
-    {
-        $this->addMediaCollection('photo')
-            ->singleFile()
-            ->useDisk('orders')
-            ->registerMediaConversions(function (Media $media) {
-                {
-                    $this->addMediaConversion('thumb')
-                        ->width(80)
-                        ->height(80);
-                }
-            });
     }
 }

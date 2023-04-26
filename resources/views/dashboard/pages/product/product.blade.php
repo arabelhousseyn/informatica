@@ -32,6 +32,7 @@
                                     <th>Catégorie</th>
                                     <th>Ancien prix</th>
                                     <th>Nouveaux prix</th>
+                                    <th>Image</th>
                                     <th>Remise %</th>
                                     <th>Publié à</th>
                                     <th>Action</th>
@@ -45,6 +46,9 @@
                                         <td>{{$product->category?->name}}</td>
                                         <td>{{$product->old_price}}</td>
                                         <td>{{$product->price}}</td>
+                                        <td>
+                                            <img src="{{$product->photo}}" width="300" height="300" />
+                                        </td>
                                         <td>{{$product->discount}}</td>
                                         <td>{{\Illuminate\Support\Carbon::parse($product->published_at)->format('Y-m-d H:i:s')}}</td>
                                         <td class="action">

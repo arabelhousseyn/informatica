@@ -18,13 +18,15 @@
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="{{asset('assets/dashboard/dist/img/user2-160x160.jpg')}}" class="user-image" alt="User Image">
+                        <img src="{{asset('assets/dashboard/dist/img/user2-160x160.jpg')}}" class="user-image"
+                             alt="User Image">
                         <span class="hidden-xs">{{auth()->guard('admin')->user()->full_name}}</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
-                            <img src="{{asset('assets/dashboard/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
+                            <img src="{{asset('assets/dashboard/dist/img/user2-160x160.jpg')}}" class="img-circle"
+                                 alt="User Image">
 
                             <p>
                                 {{auth()->guard('admin')->user()->full_name}} - Admin
@@ -87,6 +89,12 @@
                     <li><a href="/dashboard/admins"><i class="fa fa-circle-o"></i> Admins</a></li>
                     <li><a href="/dashboard/users"><i class="fa fa-circle-o"></i> Utilisateurs</a></li>
                 </ul>
+            </li>
+
+            <li>
+                <a href="/dashboard/orders">
+                    <i class="fa fa-dashboard"></i> <span>Commandes</span>
+                </a>
             </li>
 
             <li>
