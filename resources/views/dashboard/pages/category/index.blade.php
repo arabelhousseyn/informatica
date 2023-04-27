@@ -1,5 +1,5 @@
 @extends('dashboard.main')
-@section('title','admin panel-publicités')
+@section('title','admin panel-catégories')
 @section('content')
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -7,9 +7,10 @@
             Tableau de bord
             <small>Admin panel</small>
         </h1>
-        @include('dashboard.layouts.breadcrumb',['data' => ['Publicités']])
+        @include('dashboard.layouts.breadcrumb',['data' => ['Catégories']])
 
-        <a href="{{route('dashboard.ads.create')}}" class="btn btn-primary" style="margin-top: 20px;">Ajouter une publicité <i class="fa fa-plus"></i></a>
+        <a href="{{route('dashboard.categories.create')}}" class="btn btn-primary" style="margin-top: 20px;">Ajouter une
+            catégorie <i class="fa fa-plus"></i></a>
     </section>
 
     <!-- Main content -->
@@ -20,29 +21,51 @@
                 <div class="col-xs-12">
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">Publicités</h3>
+                            <h3 class="box-title">Catégories</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
                             <table id="admins" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
-                                    <th>Titre</th>
-                                    <th>Description</th>
+                                    <th>Désignation</th>
+                                    <th>Catégorie fils</th>
                                     <th>Image</th>
+                                    <th>Created at</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($ads as $ad)
+                                @foreach($categories as $category)
                                     <tr>
-                                        <td>{{$ad->title}}</td>
-                                        <td>{{$ad->description}}</td>
+                                        <td>{{$category->name}}</td>
                                         <td>
-                                            <img src="{{$ad->photo}}" width="300" height="300" />
+                                            @if(!blank($category->children))
+                                                <ul>
+                                                    @foreach($category->children as $child)
+                                                        <li>{{$child->name}}</li>
+                                                    @endforeach
+                                                </ul>
+                                            @endif
                                         </td>
+                                        <td>
+                                            <img src="{{$category->photo}}" width="100" height="100"/>
+                                        </td>
+                                        <td>{{$category->created_at->format('Y-m-d H:i:s')}}</td>
                                         <td class="action">
-                                            <form method="post" action="{{route('dashboard.ads.destroy',$ad)}}">
+
+                                            @if($category->depth != 1)
+                                                <a href="{{route('dashboard.categories.show',$category)}}"
+                                                   class="btn btn-primary" style="margin-top: 20px;">Ajouter un
+                                                    sous catégorie <i class="fa fa-plus"></i></a>
+                                            @endif
+
+
+                                            <a href="{{route('dashboard.categories.edit',$category)}}"
+                                               class="btn btn-success"><i class="fa fa-pencil"></i></a>
+
+                                            <form method="post"
+                                                  action="{{route('dashboard.categories.destroy',$category)}}">
                                                 @method('DELETE')
                                                 @csrf
                                                 <button type="submit" class="btn btn-danger">
@@ -55,8 +78,7 @@
                                 </tbody>
                                 <tfoot>
                                 <tr>
-                                    <th>Titre</th>
-                                    <th>Description</th>
+                                    <th>Désignation</th>
                                     <th>Image</th>
                                     <th>Action</th>
                                 </tr>
@@ -78,7 +100,9 @@
     <!-- page script -->
     <script>
         $(function () {
-            $('#admins').DataTable()
+            $('#admins').DataTable({
+                order: [[3, 'desc']],
+            })
         })
     </script>
 @endsection

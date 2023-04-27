@@ -7,6 +7,7 @@ use App\Http\Controllers\Dashboard\UsersController;
 use App\Http\Controllers\Dashboard\ProductController;
 use App\Http\Controllers\Dashboard\AdsController;
 use App\Http\Controllers\Dashboard\OrderController;
+use App\Http\Controllers\Dashboard\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('dashboard')->name('dashboard.')->group(function () {
@@ -19,12 +20,15 @@ Route::prefix('dashboard')->name('dashboard.')->group(function () {
         Route::get('/admin', [DashboardController::class, 'view'])->name('admin');
         Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
 
+        Route::post('/sub-category/{category}', [CategoryController::class, 'storeSubCategory'])->name('categories.subCategory');
+
         Route::resources([
             '/admins' => AdminController::class,
             '/users' => UsersController::class,
             '/products' => ProductController::class,
             '/ads' => AdsController::class,
             '/orders' => OrderController::class,
+            '/categories' => CategoryController::class,
         ]);
     });
 });

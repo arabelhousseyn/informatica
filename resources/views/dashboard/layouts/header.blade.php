@@ -92,14 +92,20 @@
             </li>
 
             <li>
-                <a href="/dashboard/orders">
-                    <i class="fa fa-dashboard"></i> <span>Commandes</span>
+                <a href="/dashboard/categories">
+                    <i class="fa fa-dashboard"></i> <span>Catégories</span>
                 </a>
             </li>
 
             <li>
                 <a href="/dashboard/products">
                     <i class="fa fa-dashboard"></i> <span>Produits</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="/dashboard/orders">
+                    <i class="fa fa-dashboard"></i> <span>Commandes</span>
                 </a>
             </li>
 

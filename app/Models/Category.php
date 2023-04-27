@@ -11,11 +11,20 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Kalnoy\Nestedset\NestedSet;
 use Kalnoy\Nestedset\NodeTrait;
-use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use App\Models\Media;
 
 class Category extends Model
 {
     use HasFactory, HasUuids, NodeTrait;
+
+    protected static function booted()
+    {
+        parent::booted();
+
+        static::deleting(function (self $model) {
+            $model->products()->update(['category_id' => null]);
+        });
+    }
 
     /**
      * The attributes that are mass assignable.

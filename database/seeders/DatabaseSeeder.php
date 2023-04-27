@@ -22,13 +22,24 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(10)->create();
-        Admin::factory(10)->create();
-        Category::factory(9)->create();
-        Product::factory(10)->create();
-        Cart::factory(5)->create();
-        Wishlist::factory(20)->create();
-        Order::factory(10)->create();
-        OrderItem::factory(10)->create();
+        if (app()->environment(['local', 'development'])) {
+            User::factory(10)->create();
+            Admin::factory(10)->create();
+            Category::factory(9)->create();
+            Product::factory(10)->create();
+            Cart::factory(5)->create();
+            Wishlist::factory(20)->create();
+            Order::factory(10)->create();
+            OrderItem::factory(10)->create();
+
+            $this->call([
+                AdminSeeder::class,
+            ]);
+
+        } elseif (app()->environment('production')) {
+            $this->call([
+                AdminSeeder::class,
+            ]);
+        }
     }
 }

@@ -24,7 +24,7 @@ return new class() extends Migration {
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
 
-            $table->uuid('category_id');
+            $table->uuid('category_id')->nullable();
             $table->foreign('category_id')
                 ->on('categories')
                 ->references('id')
