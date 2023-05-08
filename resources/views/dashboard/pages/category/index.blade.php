@@ -97,7 +97,7 @@
     </section>
     <!-- /.content -->
 
-    <!-- page script -->
+    <!-- page scriptt -->
     <script>
         $(function () {
             $('#admins').DataTable({
