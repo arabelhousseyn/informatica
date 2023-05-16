@@ -79,7 +79,9 @@
                                 <tfoot>
                                 <tr>
                                     <th>Désignation</th>
+                                    <th>Catégorie fils</th>
                                     <th>Image</th>
+                                    <th>Created at</th>
                                     <th>Action</th>
                                 </tr>
                                 </tfoot>

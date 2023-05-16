@@ -69,9 +69,14 @@
                                 </tbody>
                                 <tfoot>
                                 <tr>
-                                    <th>Nom complet</th>
-                                    <th>email</th>
-                                    <th>Téléphone</th>
+                                    <th>Article</th>
+                                    <th>Description</th>
+                                    <th>Catégorie</th>
+                                    <th>Ancien prix</th>
+                                    <th>Nouveaux prix</th>
+                                    <th>Image</th>
+                                    <th>Remise %</th>
+                                    <th>Publié à</th>
                                     <th>Action</th>
                                 </tr>
                                 </tfoot>

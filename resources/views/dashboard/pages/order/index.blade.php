@@ -95,6 +95,7 @@
                                     <th>Ville</th>
                                     <th>Total prix</th>
                                     <th>Statu</th>
+                                    <th>Articles</th>
                                     <th>Action</th>
                                 </tr>
                                 </tfoot>
