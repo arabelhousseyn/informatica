@@ -83,17 +83,20 @@
     <!-- Banner -->
 
     <div class="banner_2">
-        <div class="banner_2_background" style="background-image:url({{asset('assets/images/banner_2_background.jpg')}})"></div>
+        <div class="banner_2_background" style="background-image:url(images/banner_2_background.jpg)"></div>
         <div class="banner_2_container">
             <div class="banner_2_dots"></div>
-            <!-- Ads 2 Slider -->
-            @foreach($ads as $ad)
-                <div class="owl-carousel owl-theme banner_2_slider">
-                    @include('components.ads',$ad)
-                </div>
-            @endforeach
+            <!-- Banner 2 Slider -->
+
+            <div class="owl-carousel owl-theme banner_2_slider">
+                @foreach($ads as $ad)
+                        @include('components.ads',$ad)
+                @endforeach
+
+            </div>
         </div>
     </div>
+
 
     <!-- Hot New Arrivals -->
 
